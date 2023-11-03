@@ -3,9 +3,34 @@
 }
 
 .list {
+  display: flex;
+  flex-direction: row;
   list-style-type: none;
 }
 
 .link {
-  color: red;
+  display: inline-block;
+  padding: 15px;
+  color: var(--color-special);
+  font-size: 1rem;
+  line-height: 100%;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  transition: all var(--duration-middle);
+  border: 1px solid var(--color-black);
+}
+
+.link:hover {
+  color: var(--color-text-dark);
+  background-color: var(--color-special);
+}
+
+.link:active {
+  color: var(--color-text-dark);
+  background-color: var(--color-special-darkest);
+}
+
+.itemActive .link {
+  color: var(--color-text-dark);
+  background-color: var(--color-special);
 }

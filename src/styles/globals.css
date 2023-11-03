@@ -9,11 +9,11 @@
 html,
 body {
   margin: 0 auto;
-  max-width: 1920px;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  max-width: var(--page-size-max);
+  font-family: var(--font-main);
   color: black;
-  background-color: white;
-  font-size: 16px;
+  background-color: var(--color-bg-main);
+  font-size: var(--font-size-main);
   scroll-behavior: smooth;
 }
 
@@ -23,7 +23,7 @@ a {
 }
 
 .container {
-  padding: 0 10%;
+  padding: var(--padding-container-desktop);
 }
 
 .visually-hidden {
@@ -35,4 +35,40 @@ a {
   overflow: hidden;
   border: 0;
   clip: rect(0 0 0 0);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+}
+
+@media screen and (max-width: 1023px) {
+  .container {
+    padding: var(--padding-container-tablet);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: var(--padding-container-mobile);
+  }
 }

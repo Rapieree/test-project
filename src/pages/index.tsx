@@ -1,8 +1,11 @@
+import {clsx} from "clsx";
 import {GetStaticProps} from "next";
 import React from "react";
 import {SITE_URL} from "../../config";
 import Layout, {TLayoutContent} from "../components/layout/layout";
-import {navLinks, PageRoute} from "../const/const";
+import TelegramAuthForm from "../components/telegram-auth-form/telegram-auth-form";
+import {PageRoute} from "../const/const";
+import {createContent} from "../content/base-content";
 
 const TITLE = `Главная`;
 const DESCRIPTION = `Главная страница`;
@@ -19,7 +22,13 @@ const Home: React.FC<TProps> = ({content}) => {
 
   return (
     <Layout title={TITLE} description={DESCRIPTION} canonical={CANONICAL} content={layout}>
-      <h1>hao</h1>
+      <div className={clsx(`container`)}>
+        <h1>hao</h1>
+
+        <TelegramAuthForm />
+      </div>
+
+
     </Layout>
   );
 };
@@ -27,13 +36,7 @@ const Home: React.FC<TProps> = ({content}) => {
 export const getStaticProps: GetStaticProps<TProps> = async () => {
   return {
     props: {
-      content: {
-        layout: {
-          header: {
-            navLinks,
-          }
-        }
-      },
+      content: createContent(true),
     }
   };
 };

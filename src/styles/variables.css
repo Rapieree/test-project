@@ -1,6 +1,48 @@
 :root {
     /* colors */
-    --color-white: #FFFFFF;
+    --color-white: #ffffff;
     --color-black: #000000;
-    --color-bg-gray: rgba(232, 223, 223, 0.7);
+    --color-bg-gray: rgba(206, 195, 195, 0.81);
+    --color-bg-gray-darken: rgba(166, 154, 154, 0.81);
+    --color-bg-main: #fff6f6;
+    --color-special: #ff9927;
+    --color-special-darken: #ef9025;
+    --color-special-darkest: #e58821;
+    --color-text-light: #ffffff;
+    --color-text-dark: #000000;
+
+
+    --color-1: #FF5B26;
+    --color-2: #264DFF;
+    --color-3: #FF9927;
+    --color-4: #26BFFF;
+    --color-5: #AA8152;
+
+
+    /* gradients */
+    --gradient-gray: linear-gradient(338deg, rgb(89, 58, 58) 0%, rgb(64, 66, 64) 53%);
+
+    /* paddings */
+    --padding-container-desktop: 0 10%;
+    --padding-container-tablet: 0 50px;
+    --padding-container-mobile: 0 20px;
+
+    /* page size */
+    --page-size-max: 1920px;
+
+    /* fonts */
+    --font-main: "Inter", Arial, Helvetica, sans-serif;
+
+    /* font size */
+    --font-size-main: 16px;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.17rem;
+    --font-size-h4: 1rem;
+    --font-size-h5: 0.83rem;
+    --font-size-h6: 0.67rem;
+
+    /* animation */
+    --duration-middle: 0.4s;
+
 }
