@@ -37,6 +37,14 @@ a {
   clip: rect(0 0 0 0);
 }
 
+.mrgt-middle {
+  margin-top: var(--margin-block-middle);
+}
+
+.mrgb-middle {
+  margin-bottom: var(--margin-block-middle);
+}
+
 h1 {
   font-size: var(--font-size-h1);
 }

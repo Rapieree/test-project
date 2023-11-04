@@ -22,10 +22,11 @@
     /* gradients */
     --gradient-gray: linear-gradient(338deg, rgb(89, 58, 58) 0%, rgb(64, 66, 64) 53%);
 
-    /* paddings */
+    /* paddings and margins */
     --padding-container-desktop: 0 10%;
     --padding-container-tablet: 0 50px;
     --padding-container-mobile: 0 20px;
+    --margin-block-middle: 40px;
 
     /* page size */
     --page-size-max: 1920px;

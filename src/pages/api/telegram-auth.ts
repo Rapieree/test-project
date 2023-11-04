@@ -55,9 +55,7 @@ const auth = async (phone: string) => {
   });
 
   console.log(`auth string:`, authString);
-  process.env[`TELEGRAM_AUTH_STRING `] = authString;
-
-  await telegram.client.sendMessage(`Rapieree`, {message: `Всё ок, я зерегался`});
+  process.env[`TELEGRAM_AUTH_STRING`] = authString;
 };
 
 router.get(async (req, res) => {

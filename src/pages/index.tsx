@@ -24,11 +24,7 @@ const Home: React.FC<TProps> = ({content}) => {
     <Layout title={TITLE} description={DESCRIPTION} canonical={CANONICAL} content={layout}>
       <div className={clsx(`container`)}>
         <h1>hao</h1>
-
-        <TelegramAuthForm />
       </div>
-
-
     </Layout>
   );
 };

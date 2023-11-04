@@ -1,0 +1,38 @@
+import {clsx} from "clsx";
+import {GetStaticProps} from "next";
+import React from "react";
+import {SITE_URL} from "../../../config";
+import Layout, {TLayoutContent} from "../../components/layout/layout";
+import {PageRoute} from "../../const/const";
+import {createContent} from "../../content/base-content";
+
+const TITLE = `Телеграм фичи`;
+const DESCRIPTION = `Телеграм фичи`;
+const CANONICAL = `${SITE_URL}${PageRoute.TELEGRAM_FEATURES}`;
+
+type TProps = {
+  content: {
+    layout: TLayoutContent,
+  },
+}
+
+const FeaturesPage: React.FC<TProps> = ({content}) => {
+  const {layout} = content;
+
+  return (
+    <Layout title={TITLE} description={DESCRIPTION} canonical={CANONICAL} content={layout}>
+      <div className={clsx(`container mrgt-middle`)}>
+      </div>
+    </Layout>
+  );
+};
+
+export const getStaticProps: GetStaticProps<TProps> = async () => {
+  return {
+    props: {
+      content: createContent(true),
+    }
+  };
+};
+
+export default FeaturesPage;
