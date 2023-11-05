@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint.fix": "next lint --fix"
+    "lint.fix": "next lint --fix",
+    "prisma.client": "prisma generate",
+    "prisma.cms": "prisma studio",
+    "prisma.migrate": "prisma migrate dev --create-only"
   },
   "dependencies": {
     "@prisma/client": "5.5.2",

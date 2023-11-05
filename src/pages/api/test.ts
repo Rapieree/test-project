@@ -5,14 +5,7 @@ import {prisma} from "../../service/prisma-client";
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
 router.get(async (req, res) => {
-  const users = await prisma.user.findFirst({
-    where: {
-      email: {
-        contains: `mail.ru`,
-        mode: `insensitive`,
-      },
-    },
-  });
+  const users = await prisma.user.findMany({});
 
   res.json({users});
 });
