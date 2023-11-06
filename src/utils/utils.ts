@@ -13,3 +13,8 @@ export const handlePromise = async <T extends unknown = unknown, E extends Error
     return [error as E, null];
   }
 };
+
+export const log = (...args: any[]) => {
+  // eslint-disable-next-line no-console
+  console.log(...args);
+};
