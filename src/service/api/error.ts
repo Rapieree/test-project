@@ -12,6 +12,14 @@ class ApiError extends Error {
     this.statusCode = statusCode;
     this.response = response || null;
   }
+
+  static internalServerError(message: string = `Internal server error`) {
+    return new ApiError({
+      name: `Common Error`,
+      statusCode: 500,
+      message,
+    });
+  }
 }
 
 export {
