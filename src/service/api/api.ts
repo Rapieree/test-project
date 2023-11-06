@@ -42,6 +42,8 @@ const parseResult = async (response: Response, parser: ApiParser) => {
     case ApiParser.TEXT: {
       return await response.text();
     }
+    default:
+      return null;
   }
 };
 

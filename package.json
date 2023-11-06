@@ -10,7 +10,8 @@
     "lint.fix": "next lint --fix",
     "prisma.client": "prisma generate",
     "prisma.cms": "prisma studio",
-    "prisma.migrate": "prisma migrate dev --create-only"
+    "prisma.migrate": "prisma migrate dev --create-only",
+    "prisma.push": "prisma db push"
   },
   "dependencies": {
     "@prisma/client": "5.5.2",
