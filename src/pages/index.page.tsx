@@ -3,7 +3,6 @@ import {GetStaticProps} from "next";
 import React from "react";
 import {SITE_URL} from "../../config";
 import Layout, {TLayoutContent} from "../components/layout/layout";
-import TelegramAuthForm from "../components/telegram-auth-form/telegram-auth-form";
 import {PageRoute} from "../const/const";
 import {createContent} from "../content/base-content";
 
