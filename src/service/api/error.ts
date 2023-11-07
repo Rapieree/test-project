@@ -3,22 +3,30 @@ import {TApiErrorData} from "./types";
 class ApiError extends Error {
   public readonly statusCode: number;
   public readonly response: Response | null;
+  public readonly data?: any;
 
   constructor(errorData: TApiErrorData, response?: Response) {
-    const {message, name, statusCode} = errorData;
+    const {message, statusCode, data} = errorData;
 
     super(message);
-    this.name = name;
     this.statusCode = statusCode;
     this.response = response || null;
+    this.data = data;
   }
 
   static internalServerError(message: string = `Internal server error`) {
     return new ApiError({
-      name: `Common Error`,
       statusCode: 500,
       message,
     });
+  }
+
+  static badRequest(message: string, data?: any, res?: Response) {
+    return new ApiError({
+      statusCode: 400,
+      message,
+      data,
+    }, res);
   }
 }
 

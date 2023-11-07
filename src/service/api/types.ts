@@ -1,7 +1,7 @@
 export type TApiErrorData = {
   statusCode: number;
-  name: string;
   message: string,
+  data?: any,
 }
 
 export type TApiSuccessData<T> = {

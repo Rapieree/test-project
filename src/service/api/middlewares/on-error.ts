@@ -6,9 +6,9 @@ import {TApiErrorData} from "../types";
 export const onError = (err: unknown, req: NextApiRequest, res: NextApiResponse) => {
   if (err instanceof ApiError) {
     const errorResult: TApiErrorData = {
-      name: err.name,
       statusCode: err.statusCode,
       message: err.message,
+      ...(err.data ? {data: err.data} : {}),
     };
     res.status(errorResult.statusCode).json({error: errorResult});
     return;
