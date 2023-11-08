@@ -1,6 +1,6 @@
 import {ValidationOptions} from "joi";
 import joi from "types-joi";
-import {validate} from "../../service/api/utils";
+import {validate} from "../../service/api/validation";
 
 const title = joi.string().min(3).max(120).required();
 const content = joi.string().min(120).max(4048).required();
