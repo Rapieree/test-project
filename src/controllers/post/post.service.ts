@@ -17,6 +17,20 @@ const postService = {
     }
 
     return result;
+  },
+
+  async get(postId: string) {
+    const [error, result] = await handlePromise(prisma.post.findUniqueOrThrow({
+      where: {
+        postId,
+      }
+    }));
+
+    if (error) {
+      throw ApiError.badRequest(`Некорректный идентификатор поста`);
+    }
+
+    return result;
   }
 };
 
