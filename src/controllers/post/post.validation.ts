@@ -17,5 +17,10 @@ export const postValidation = {
     return validate(joi.object({
       id: postId,
     }).required(), query, options);
+  },
+  queryDelete(query: any, options?: ValidationOptions) {
+    return validate(joi.object({
+      id: postId,
+    }).required(), query, options);
   }
 };

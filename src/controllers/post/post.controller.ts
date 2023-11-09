@@ -17,6 +17,7 @@ const postController = {
 
     return res.status(200).json(new PostDto(post));
   },
+
   async get(req: NextApiRequest, res: NextApiResponse) {
     const {value, error} = postValidation.queryGet(req.query);
 
@@ -27,6 +28,18 @@ const postController = {
     const post = await postService.get(value.id);
 
     return res.status(200).json(new PostDto(post));
+  },
+
+  async delete(req: NextApiRequest, res: NextApiResponse) {
+    const {value, error} = postValidation.queryDelete(req.query);
+
+    if (error) {
+      throw ApiError.badRequest(error.message);
+    }
+
+    const result = await postService.delete(value.id);
+
+    return res.status(200).json(result);
   }
 };
 

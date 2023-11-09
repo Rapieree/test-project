@@ -31,6 +31,20 @@ const postService = {
     }
 
     return result;
+  },
+
+  async delete(postId: string) {
+    const [error] = await handlePromise(prisma.post.delete({
+      where: {
+        postId,
+      }
+    }));
+
+    if (error) {
+      throw ApiError.badRequest(`Некорректный идентификатор поста`);
+    }
+
+    return true;
   }
 };
 
