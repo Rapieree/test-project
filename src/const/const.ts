@@ -4,6 +4,7 @@ export enum PageRoute {
   MAIN = `/`,
   TELEGRAM_AUTH = `/telegram/auth`,
   TELEGRAM_FEATURES = `/telegram/features`,
+  BLOG = `/blog`,
 }
 
 export enum ApiRoute {
@@ -21,4 +22,7 @@ export const navLinks: TLink[] = [{
 }, {
   name: `Фичи`,
   url: PageRoute.TELEGRAM_FEATURES,
+}, {
+  name: `Блог`,
+  url: PageRoute.BLOG,
 }];

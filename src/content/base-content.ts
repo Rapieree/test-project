@@ -8,7 +8,7 @@ const layoutContent: TLayoutContent = {
 };
 
 type TContentResult<TWithLayout extends boolean, TContent extends Record<string, unknown>> = TWithLayout extends true
-  ? TLayoutContent & TContent
+  ? {layout: TLayoutContent} & TContent
   : TContent;
 
 export const createContent = <TWithLayout extends boolean, TContent extends Record<string, unknown>>(withLayout: TWithLayout, content: TContent | {} = {}) => {

@@ -1,6 +1,6 @@
 import {ApiError} from "../../service/api/error";
 import {prisma} from "../../service/prisma-client";
-import {handlePromise} from "../../utils/utils";
+import {handlePromise, log} from "../../utils/utils";
 
 const postService = {
   async create(title: string, content: string) {
@@ -8,43 +8,58 @@ const postService = {
       data: {
         title,
         content,
-        postId: String(Date.now()),
       }
     }));
 
     if (error) {
+      log(`Post Service create error`, error);
       throw ApiError.internalServerError();
     }
 
     return result;
   },
 
-  async get(postId: string) {
+  async get(id: number) {
     const [error, result] = await handlePromise(prisma.post.findUniqueOrThrow({
       where: {
-        postId,
+        id,
       }
     }));
 
     if (error) {
+      log(`Post Service get error`, error);
       throw ApiError.badRequest(`Некорректный идентификатор поста`);
     }
 
     return result;
   },
 
-  async delete(postId: string) {
+  async delete(id: number) {
     const [error] = await handlePromise(prisma.post.delete({
       where: {
-        postId,
+        id,
       }
     }));
 
     if (error) {
+      log(`Post Service delete error`, error);
       throw ApiError.badRequest(`Некорректный идентификатор поста`);
     }
 
     return true;
+  },
+
+  async find() {
+    const [error, posts] = await handlePromise(prisma.post.findMany({
+
+    }));
+
+    if (error) {
+      log(`Post Service find error`, error);
+      throw ApiError.internalServerError();
+    }
+
+    return posts;
   }
 };
 
