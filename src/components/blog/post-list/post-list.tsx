@@ -1,12 +1,12 @@
 import {clsx} from "clsx";
 import React from "react";
-import {TPostJSON} from "../../../controllers/post/post.dto";
+import {TPostWithHtml} from "../../../controllers/post/post.dto";
 import PostPreview from "../post-preview/post-preview";
 import postListStyle from "./post-list.module.css";
 
 type TProps = {
   className?: string,
-  posts: TPostJSON[],
+  posts: TPostWithHtml[],
 }
 
 const PostList: React.FC<TProps> = ({className, posts}) => {

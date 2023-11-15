@@ -8,6 +8,10 @@ type TPostJSON = {
   createdAt: string,
 }
 
+type TPostWithHtml = TPostJSON & {
+  contentHtml: string,
+}
+
 class PostDto {
   id: number;
   title: string;
@@ -36,6 +40,7 @@ class PostDto {
 
 export type {
   TPostJSON,
+  TPostWithHtml,
 };
 
 export {

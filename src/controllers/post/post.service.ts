@@ -1,6 +1,7 @@
 import {ApiError} from "../../service/api/error";
 import {prisma} from "../../service/prisma-client";
 import {handlePromise, log} from "../../utils/utils";
+import {PostDto} from "./post.dto";
 
 const postService = {
   async create(title: string, content: string) {
@@ -49,7 +50,7 @@ const postService = {
     return true;
   },
 
-  async find() {
+  async find(): Promise<PostDto[]> {
     const [error, posts] = await handlePromise(prisma.post.findMany({
 
     }));

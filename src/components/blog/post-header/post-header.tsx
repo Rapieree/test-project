@@ -2,12 +2,12 @@ import {clsx} from "clsx";
 import Link from "next/link";
 import React from "react";
 import {PageRoute} from "../../../const/const";
-import {TPostJSON} from "../../../controllers/post/post.dto";
+import {TPostWithHtml} from "../../../controllers/post/post.dto";
 import postHeaderStyle from "./post-header.module.css";
 
 type TProps = {
   className?: string,
-  post: TPostJSON,
+  post: TPostWithHtml,
 }
 
 const createPostLink = (postId: string | number) => {

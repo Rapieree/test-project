@@ -42,6 +42,7 @@
     --font-size-h4: 1rem;
     --font-size-h5: 0.83rem;
     --font-size-h6: 0.67rem;
+    --font-size-markdown-preview: 14px;
 
     /* animation */
     --duration-fast: 0.2s;

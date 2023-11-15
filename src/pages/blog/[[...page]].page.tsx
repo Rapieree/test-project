@@ -7,32 +7,31 @@ import PostList from "../../components/blog/post-list/post-list";
 import Layout, {TLayoutContent} from "../../components/layout/layout";
 import {PageRoute} from "../../const/const";
 import {createContent} from "../../content/base-content";
-import {PostDto, TPostJSON} from "../../controllers/post/post.dto";
+import {PostDto, TPostWithHtml} from "../../controllers/post/post.dto";
 import {postService} from "../../controllers/post/post.service";
 import {validate} from "../../service/api/validation";
+import {markdownToHtml} from "../../utils/markdown";
 import {handlePromise, log} from "../../utils/utils";
 
 const TITLE = `Блог`;
 const DESCRIPTION = `Страница блога`;
 const CANONICAL = `${SITE_URL}${PageRoute.BLOG}`;
-const MAX_POSTS = 20;
 
 type TProps = {
   content: {
     layout: TLayoutContent,
-    posts: TPostJSON[],
+    posts: TPostWithHtml[],
   },
+  canonical: string,
 };
 
-const BlogPage: React.FC<TProps> = ({content}) => {
+const BlogPage: React.FC<TProps> = ({content, canonical}) => {
   const {layout, posts} = content;
 
   return (
-    <Layout title={TITLE} description={DESCRIPTION} canonical={CANONICAL} content={layout}>
-      <div className={clsx(`container`)}>
-        {
-          <PostList posts={posts} />
-        }
+    <Layout title={TITLE} description={DESCRIPTION} canonical={canonical} content={layout}>
+      <div className={clsx(`container mrgt-middle mrgb-middle`)}>
+        <PostList posts={posts} />
       </div>
     </Layout>
   );
@@ -52,10 +51,24 @@ export const getServerSideProps: GetServerSideProps<TProps, {page?: string}> = a
 
   page = value;
 
-  log(page);
-  const [error, posts] = await handlePromise(postService.find());
+  const [findingError, posts] = await handlePromise(postService.find());
+
+  if (findingError) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const postsJson = posts.map((post) => PostDto.toJSON(post));
+
+  const [error, postsWithHtml] = await handlePromise(Promise.all(postsJson.map(async (post) => {
+    const html = await markdownToHtml(post.content);
+
+    return {...post, contentHtml: html};
+  })));
 
   if (error) {
+    log(error);
     return {
       notFound: true,
     };
@@ -64,9 +77,9 @@ export const getServerSideProps: GetServerSideProps<TProps, {page?: string}> = a
   return {
     props: {
       content: createContent(true, {
-        posts: posts?.map((post) => PostDto.toJSON(post)),
+        posts: postsWithHtml,
       }),
-      canonical: `${CANONICAL}/{}`
+      canonical: `${CANONICAL}/${page}`,
     },
   };
 };
