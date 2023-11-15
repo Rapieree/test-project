@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 20px;
+  box-shadow: var(--box-shadow-dark-blue);
+  border-radius: var(--border-radius-middle);
+}
+
+.header {
+  margin-bottom: 0.8em;
+}

@@ -69,6 +69,38 @@ h6 {
   font-size: var(--font-size-h6);
 }
 
+.link {
+  display: inline-block;
+  font-size: 1rem;
+  opacity: 0.8;
+  transition: all var(--duration-fast) linear;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.link:active {
+  transform: scale(0.99);
+}
+
+.linkSpecial {
+  color: var(--color-special);
+}
+
+.linkSpecial:hover {
+  color: var(--color-special-darken);
+}
+
+.linkSpecial:active {
+  color: var(--color-special-darkest);
+}
+
+.hr {
+  margin: 0.7em 0;
+  border-color: var(--color-bg-gray);
+}
+
 @media screen and (max-width: 1023px) {
   .container {
     padding: var(--padding-container-tablet);

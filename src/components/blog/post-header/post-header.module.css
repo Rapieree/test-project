@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: auto max-content;
+  column-gap: 25px;
+  align-items: baseline;
+}
+
+.link {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-text-gray-dark);
+}
+
+.link:hover {
+  color: var(--color-text-dark);
+}
+
+.createdDate {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-gray-light);
+  text-align: right;
+}

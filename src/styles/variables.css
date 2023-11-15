@@ -4,27 +4,27 @@
     --color-black: #000000;
     --color-bg-gray: rgba(206, 195, 195, 0.81);
     --color-bg-gray-darken: rgba(166, 154, 154, 0.81);
-    --color-bg-main: #fff6f6;
+    --color-bg-main: #f3e0e0;
     --color-special: #ff9927;
     --color-special-darken: #ef9025;
     --color-special-darkest: #e58821;
     --color-text-light: #ffffff;
     --color-text-dark: #000000;
+    --color-text-gray-dark: #3b3535;
+    --color-text-gray-light: #9b8686;
 
+    /* box-shadows */
+    --box-shadow-dark-blue: 0px 0px 10px 0px rgba(11, 45, 71, 0.35);
 
-    --color-1: #FF5B26;
-    --color-2: #264DFF;
-    --color-3: #FF9927;
-    --color-4: #26BFFF;
-    --color-5: #AA8152;
-
+    /* border-radius */
+    --border-radius-middle: 10px;
 
     /* gradients */
     --gradient-gray: linear-gradient(338deg, rgb(89, 58, 58) 0%, rgb(64, 66, 64) 53%);
 
     /* paddings and margins */
-    --padding-container-desktop: 0 10%;
-    --padding-container-tablet: 0 50px;
+    --padding-container-desktop: 0 50px;
+    --padding-container-tablet: 0 30px;
     --padding-container-mobile: 0 20px;
     --margin-block-middle: 40px;
 
@@ -42,8 +42,10 @@
     --font-size-h4: 1rem;
     --font-size-h5: 0.83rem;
     --font-size-h6: 0.67rem;
+    --font-size-markdown-preview: 14px;
 
     /* animation */
+    --duration-fast: 0.2s;
     --duration-middle: 0.4s;
 
 }

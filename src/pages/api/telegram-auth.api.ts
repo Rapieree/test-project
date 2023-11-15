@@ -4,7 +4,7 @@ import PusherClient from "pusher-js";
 import {PUSHER_CLUSTER, PUSHER_KEY} from "../../../config";
 import {TELEGRAM_AUTH_EVENT, TELEGRAM_CHANNEL, TelegramAuthEventType} from "../../controllers/telegram/const";
 import {telegram} from "../../controllers/telegram/telegram";
-import {wait} from "../../utils/utils";
+import {log, wait} from "../../utils/utils";
 
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
@@ -20,7 +20,7 @@ const phoneCodeCB = async (): Promise<string> => {
   let code = ``;
   const channel = pusher.subscribe(TELEGRAM_CHANNEL);
   channel.bind(TELEGRAM_AUTH_EVENT, (data: any) => {
-    console.log(data);
+    log(data);
     const {type} = data;
 
     if (type === TelegramAuthEventType.GET_CODE) {
@@ -31,7 +31,7 @@ const phoneCodeCB = async (): Promise<string> => {
 
   let timer = 0;
   while (!code) {
-    console.log(`Цикл старт ${timer}`);
+    log(`Цикл старт ${timer}`);
 
     if (timer > 5 * 60 * 1000) {
       break;
@@ -49,12 +49,12 @@ const auth = async (phone: string) => {
   const authString = await telegram.auth({
     phoneNumber: phone,
     onError: (error) => {
-      console.log(`Telegram auth error`, error);
+      log(`Telegram auth error`, error);
     },
     phoneCode: phoneCodeCB,
   });
 
-  console.log(`auth string:`, authString);
+  log(`auth string:`, authString);
   process.env[`TELEGRAM_AUTH_STRING`] = authString;
 };
 

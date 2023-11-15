@@ -3,6 +3,7 @@ import Pusher from "pusher-js";
 import React, {useEffect, useState} from "react";
 import {PUSHER_CLUSTER, PUSHER_KEY} from "../../../config";
 import {TELEGRAM_AUTH_EVENT, TELEGRAM_CHANNEL, TelegramAuthEventType} from "../../controllers/telegram/const";
+import {log} from "../../utils/utils";
 import telegramAuthFormStyle from "./telegram-auth-form.module.css";
 
 type TProps = {
@@ -34,6 +35,7 @@ const TelegramAuthForm: React.FC<TProps> = ({className}) => {
 
   const onRequestButtonClick = async () => {
     if (!pusher) {
+      // eslint-disable-next-line no-alert
       alert(`Invalid connect`);
       return;
     }
@@ -42,13 +44,14 @@ const TelegramAuthForm: React.FC<TProps> = ({className}) => {
     const res = await fetch(`/api/telegram-auth?phone=${numberPhone}`);
     const result = await res.json();
 
-    console.log(result);
+    log(result);
 
     setIsRequestedCode(true);
   };
 
   const onSendCodeButtonClick = () => {
     if (!pusher) {
+      // eslint-disable-next-line no-alert
       alert(`Invalid connect`);
       return;
     }
