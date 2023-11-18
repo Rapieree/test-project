@@ -30,7 +30,7 @@ class UserDto {
     this.isActivated = data.isActivated;
   }
 
-  toJSON(data: Prisma.UserGetPayload<any>): TUserJSON {
+  static toJSON(data: Prisma.UserGetPayload<any>): TUserJSON {
     return {
       id: data.id,
       name: data.name,

@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import uuid from "uuid";
+import * as uuid from "uuid";
 import {ApiError} from "../../service/api/error";
 import {prisma} from "../../service/prisma-client";
 import {handlePromise, log} from "../../utils/utils";

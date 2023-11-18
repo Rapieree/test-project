@@ -2,7 +2,9 @@ import {ValidationOptions} from "joi";
 import joi from "types-joi";
 import {validate} from "../../service/api/validation";
 
-const name = joi.string().alphanum().min(2).required();
+const NAME_REGEXP = /^[a-zA-Zа-яА-Я ]+$/;
+
+const name = joi.string().regex(NAME_REGEXP).min(2).required();
 const password = joi.string().alphanum().min(8).required();
 const email = joi.string().email().required();
 
@@ -12,7 +14,7 @@ const userValidation = {
       name,
       password,
       email,
-    }), data, options);
+    }).required(), data, options);
   }
 };
 
