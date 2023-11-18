@@ -19,41 +19,20 @@ const sessionService = {
     return {accessToken, refreshToken};
   },
 
-  async saveTokens(userId: string, refreshToken: string) {
-    const [sessionFindingError, existedSession] = await handlePromise(prisma.user.findFirst({
-      where: {id: userId},
-    }).session());
-
-    if (sessionFindingError) {
-      log(`Session Service saveTokens:`, sessionFindingError);
-      throw ApiError.internalServerError();
-    }
-
-    if (existedSession) {
-      const [sessionUpdatingError, session] = await handlePromise(prisma.session.update({
-        where: {userId},
-        data: {
-          refreshToken,
-        },
-      }));
-
-      if (sessionUpdatingError) {
-        log(`Session Service saveTokens:`, sessionFindingError);
-        throw ApiError.internalServerError();
-      }
-
-      return session;
-    }
-
-    const [sessionCreatingError, session] = await handlePromise(prisma.session.create({
-      data: {
+  async saveToken(userId: string, refreshToken: string) {
+    const [sessionError, session] = await handlePromise(prisma.session.upsert({
+      where: {userId},
+      update: {
+        refreshToken,
+      },
+      create: {
         userId,
         refreshToken,
       }
     }));
 
-    if (sessionCreatingError) {
-      log(`Session Service saveTokens:`, sessionFindingError);
+    if (sessionError) {
+      log(`Session Service saveTokens:`, sessionError);
       throw ApiError.internalServerError();
     }
 
