@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt";
 import * as uuid from "uuid";
+import {SITE_URL} from "../../../config";
+import {ApiRoute} from "../../const/const";
 import {ApiError} from "../../service/api/error";
 import {prisma} from "../../service/prisma-client";
 import {handlePromise, log} from "../../utils/utils";
@@ -11,7 +13,7 @@ type TRegistrationData = {
 }
 
 const createActivationLink = () => {
-  return uuid.v4();
+  return `${SITE_URL}${ApiRoute.USER_ACTIVATION}?id=${uuid.v4()}`;
 };
 
 const userService = {

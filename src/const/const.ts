@@ -12,6 +12,8 @@ export enum ApiRoute {
   PUSHER_AUTH = `api/pusher-auth`,
   TELEGRAM_AUTH = `/api/telegram/auth`,
   TELEGRAM_SEND_MESSAGE = `/api/telegram/send-message`,
+  REGISTRATION = `/api/registration`,
+  USER_ACTIVATION = `/api/activation`,
 }
 
 export const navLinks: TLink[] = [{
