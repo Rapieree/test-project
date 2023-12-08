@@ -17,6 +17,7 @@
     --box-shadow-dark-blue: 0px 0px 10px 0px rgba(11, 45, 71, 0.35);
 
     /* border-radius */
+    --border-radius-low: 5px;
     --border-radius-middle: 10px;
 
     /* gradients */
@@ -35,7 +36,7 @@
     --font-main: "Inter", Arial, Helvetica, sans-serif;
 
     /* font size */
-    --font-size-main: 16px;
+    --font-size-main: 14px;
     --font-size-h1: 2rem;
     --font-size-h2: 1.5rem;
     --font-size-h3: 1.17rem;

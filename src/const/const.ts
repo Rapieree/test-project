@@ -6,6 +6,7 @@ export enum PageRoute {
   TELEGRAM_FEATURES = `/telegram/features`,
   BLOG = `/blog`,
   POST = `/post`,
+  REGISTRATION = `/registration`,
 }
 
 export enum ApiRoute {

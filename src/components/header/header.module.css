@@ -1,3 +1,15 @@
 .header {
+  display: flex;
+  flex-direction: row;
   background: var(--gradient-gray);
+}
+
+.userNav {
+  margin: auto 0 auto auto;
+  height: 100%;
+}
+
+.userNavRegLink {
+  display: inline-block;
+  color: var(--color-special);
 }
