@@ -1,0 +1,7 @@
+.registerForm > fieldset {
+  padding: 20px;
+  border: 2px solid var(--color-special);
+  border-radius: var(--border-radius-low);
+  display: grid;
+  grid-gap: 10px;
+}

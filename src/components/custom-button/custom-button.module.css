@@ -1,0 +1,24 @@
+.button {
+  max-width: max-content;
+  padding: 5px 15px;
+  display: inline-block;
+  background-color: var(--color-special);
+  border: 2px solid var(--color-bg-gray-darken);
+  border-radius: var(--border-radius-low);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color, transform var(--duration-fast);
+  color: var(--color-text-dark);
+}
+
+.button:hover {
+  background-color: var(--color-special-darken);
+}
+
+.button:focus {
+  outline: 2px solid var(--color-special-darkest);
+}
+
+.button:active {
+  transform: scale(0.98);
+}

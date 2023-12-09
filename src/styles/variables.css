@@ -6,8 +6,8 @@
     --color-bg-gray-darken: rgba(166, 154, 154, 0.81);
     --color-bg-main: #f3e0e0;
     --color-special: #ff9927;
-    --color-special-darken: #ef9025;
-    --color-special-darkest: #e58821;
+    --color-special-darken: #fd891b;
+    --color-special-darkest: #f18009;
     --color-text-light: #ffffff;
     --color-text-dark: #000000;
     --color-text-gray-dark: #3b3535;
@@ -28,6 +28,7 @@
     --padding-container-tablet: 0 30px;
     --padding-container-mobile: 0 20px;
     --margin-block-middle: 40px;
+    --margin-block-low: 20px;
 
     /* page size */
     --page-size-max: 1920px;

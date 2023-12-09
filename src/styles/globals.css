@@ -45,6 +45,10 @@ a {
   margin-bottom: var(--margin-block-middle);
 }
 
+.mrgb-low {
+  margin-bottom: var(--margin-block-low);
+}
+
 h1 {
   font-size: var(--font-size-h1);
 }

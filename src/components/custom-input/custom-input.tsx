@@ -10,7 +10,7 @@ type TProps = InputHTMLAttributes<HTMLInputElement> & {
 const CustomInput: React.FC<TProps> = ({className = ``, label, ...props}) => {
   return (
     <label className={clsx(customInputStyle.label, className)}>
-      <span className={clsx(customInputStyle.labelText)}>{label}</span>
+      {label && <span className={clsx(customInputStyle.labelText)}>{label}:</span>}
       <input className={clsx(customInputStyle.input)} {...props} />
     </label>
   );
