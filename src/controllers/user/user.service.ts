@@ -9,7 +9,10 @@ const userService = {
   async registration(data: TRegistrationData) {
     const [findingError, user] = await handlePromise(prisma.user.findFirst({
       where: {
-        email: data.email.toLowerCase(),
+        OR: [
+          {email: data.email.toLowerCase()},
+          {username: data.username},
+        ],
       }
     }));
 
@@ -19,7 +22,10 @@ const userService = {
     }
 
     if (user) {
-      throw ApiError.badRequest(`Пользователь с таким емейлом уже существует`);
+      const errorMessage = user.email === data.email.toLowerCase()
+        ? `Пользователь с таким емейлом уже существует`
+        : `Пользователь с таким ником уже существует`;
+      throw ApiError.badRequest(errorMessage);
     }
 
     const {name, email, password, username} = data;
@@ -38,7 +44,7 @@ const userService = {
     }));
 
     if (creatingError) {
-      log(`User Service Registration`, findingError);
+      log(`User Service Registration`, creatingError);
       throw ApiError.internalServerError();
     }
 

@@ -6,13 +6,13 @@ generator client {
 datasource db {
   provider = "postgresql"
   url = env("POSTGRES_CONNECTION_URL")
-  extensions = [pgcrypto]
+  extensions = [pgcrypto, citext]
 }
 
 model User {
   id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name String
-  username String @unique
+  username String @unique @db.Citext
   password String
   email String @unique
   role Role @default(USER)
