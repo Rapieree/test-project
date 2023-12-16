@@ -10,11 +10,13 @@ export enum PageRoute {
 }
 
 export enum ApiRoute {
+  USER = `api/user`,
+  USER_ACTIVATION = `/api/user/activation`,
+  USER_REGISTRATION = `/api/user/registration`,
   PUSHER_AUTH = `api/pusher-auth`,
   TELEGRAM_AUTH = `/api/telegram/auth`,
   TELEGRAM_SEND_MESSAGE = `/api/telegram/send-message`,
   REGISTRATION = `/api/registration`,
-  USER_ACTIVATION = `/api/activation`,
 }
 
 export const navLinks: TLink[] = [{

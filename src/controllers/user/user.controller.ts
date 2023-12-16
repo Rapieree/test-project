@@ -7,7 +7,7 @@ import {userValidation} from "./user.validation";
 
 const userController = {
   async registration(req: NextApiRequest, res: NextApiResponse) {
-    const {error, value} = userValidation.registration(req.body);
+    const {error, value} = userValidation.registration(JSON.parse(req.body));
 
     if (error) {
       throw ApiError.badRequest(error.message);

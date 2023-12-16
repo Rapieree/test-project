@@ -6,7 +6,7 @@ import {TApiErrorData, TApiSuccessData} from "./types";
 
 enum ApiMethod {
   GET = `GET`,
-  // POST = `POST`,
+  POST = `POST`,
   // PATCH = `PATCH`,
   // PUT = `PUT`,
   // DELETE = `DELETE`,
@@ -87,6 +87,15 @@ class Api {
       ...options,
       params,
       method: ApiMethod.GET,
+      parser: ApiParser.JSON,
+    });
+  }
+
+  async post<TBody extends Record<string, any>, TResult = unknown>(url: string | null = null, body?: TBody, options?: Omit<TRequestOptions<any>, `body` | `method` | `parser`>) {
+    return await request<TResult>(`${this._baseUrl}${url || ``}`, {
+      ...options,
+      ...(body ? {body: JSON.stringify(body)} : {}),
+      method: ApiMethod.POST,
       parser: ApiParser.JSON,
     });
   }

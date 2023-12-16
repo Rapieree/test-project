@@ -1,13 +1,5 @@
 import {Prisma, Role} from "@prisma/client";
-
-type TUserJSON = {
-  id: string,
-  name: string,
-  email: string,
-  role: Role,
-  createdAt: string,
-  updatedAt: string,
-}
+import {TUserJSON} from "./user.types";
 
 class UserDto {
   id: string;
@@ -41,10 +33,6 @@ class UserDto {
     };
   }
 }
-
-export type {
-  TUserJSON,
-};
 
 export {
   UserDto,
